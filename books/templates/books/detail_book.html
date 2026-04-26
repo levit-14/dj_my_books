@@ -1,0 +1,18 @@
+{% extends 'books/base.html' %}
+
+{% block content %}
+<div class="row mt-5">
+    <div class="col-md-4">
+        <img src="{{ detail_book.image }}" class="img-fluid rounded shadow" alt="{{ detail_book.title }}">
+    </div>
+    <div class="col-md-8">
+        <h2>{{ detail_book.title }}</h2>
+        <p class="text-muted">Categoría: {{ detail_book.category.title }}</p>
+        <hr>
+        <p><strong>Autor:</strong> {{ detail_book.author }}</p>
+        <p><strong>Agregado el:</strong> {{ detail_book.created_at }}</p>
+        <p><strong>Última actualización:</strong> {{ detail_book.update_at }}</p>
+        <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Volver al inicio</a>
+    </div>
+</div>
+{% endblock %}
