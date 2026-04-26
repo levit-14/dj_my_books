@@ -9,11 +9,10 @@ class Category(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=250)
     author = models.CharField(max_length=250)
-    image = models.URLField(max_length=2000) # O models.ImageField si prefieres archivos locales
+    # Cambiado para aceptar archivos
+    image = models.ImageField(upload_to='book_covers/') 
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    
-    # Relación uno a muchos
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='books')
 
     def __str__(self):
